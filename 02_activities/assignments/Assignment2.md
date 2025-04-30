@@ -45,8 +45,12 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+![ERD_Assignment2_Prompt1](ERD_Assignment2_Prompt1.png)
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+![ERD_Assignment2_Prompt2](ERD_Assignment2_Prompt2.png)
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
@@ -54,7 +58,17 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Two architectures are possible:
+
+Overwrite‐on‐change (Type 1 SCD)
+– Keep exactly one row per customer.
+– When their address changes, you simply UPDATE the existing row’s address columns.
+– No history is kept.
+
+Retain‐history (Type 2 SCD)
+– Keep one “version” row per address change.
+– When their address changes, insert a new row with new address while setting a flag that that is the current address.
+– Historical addresses stay in the table.
 ```
 
 ***
